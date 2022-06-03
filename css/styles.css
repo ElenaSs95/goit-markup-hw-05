@@ -262,6 +262,7 @@ body {
   margin-bottom: var(--px-left-right);
   height: 120px;
   background-color: var(--section-our-team-color);
+  border-radius: 4px;
 }
 
 .features-text {
@@ -363,12 +364,15 @@ body {
 }
 
 .clients-link {
+  width: 100%;
+  height: 100%;
   max-width: 170px;
   color: var(--icon-color);
 }
 
 .clients-link:hover,
 .clients-link:focus {
+  border: 1px solid var(--accent-color);
   color: var(--accent-color);
 }
 

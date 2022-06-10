@@ -119,6 +119,8 @@ body {
 }
 
 .header-link {
+  position: relative;
+
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -127,6 +129,18 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--title-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-link.current::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+  left: 0;
+  bottom: 0;
 }
 
 .header-contacts {
@@ -145,6 +159,7 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-link:hover,
@@ -206,6 +221,7 @@ body {
   line-height: 1.88;
   letter-spacing: 0.06em;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
@@ -277,8 +293,31 @@ body {
 }
 
 .progects-list {
+  position: relative;
   flex-basis: calc(100% / 3 - var(--px-left-right));
   margin-left: var(--px-left-right);
+}
+
+.progects-thumb {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.progects-item {
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--text-color);
 }
 
 /* -------------------------------Секция 4---------------------------- */
@@ -342,6 +381,8 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--icon-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .soc {
@@ -368,6 +409,8 @@ body {
   height: 100%;
   max-width: 170px;
   color: var(--icon-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:hover,
@@ -418,6 +461,7 @@ body {
   font-style: normal;
   line-height: 1.71;
   color: var(--text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-contacts {
@@ -427,6 +471,7 @@ body {
   font-style: normal;
   line-height: 1.71;
   color: var(--address-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-location:hover,
@@ -479,6 +524,7 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--primary-white-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .soc-icon {
@@ -518,6 +564,9 @@ body {
   color: var(--title-text-color);
   cursor: pointer;
   background-color: var(--section-our-team-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-works-item {
@@ -532,6 +581,7 @@ body {
   flex-basis: calc(100% / 3 - var(--px-left-right));
   margin-left: var(--px-left-right);
   margin-top: var(--px-left-right);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-works-button:hover,
@@ -548,6 +598,34 @@ body {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.works-link {
+  display: block;
+}
+
+.section-works-list:hover .top-text {
+  transform: translateY(0);
+}
+
+.top-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.top-text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--text-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+}
+
 .works-title {
   margin-bottom: 4px;
 
@@ -557,6 +635,7 @@ body {
   letter-spacing: 0.06em;
   color: var(--title-text-color);
 }
+
 .works-text {
   font-size: 16px;
   line-height: 1.88;
@@ -568,4 +647,46 @@ body {
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
+}
+
+/* -------------------------------Модалка---------------------------- */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  min-height: 581px;
+  background: var(--primary-white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.button-close-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  background: var(--primary-white-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  padding: 6px 6px;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }

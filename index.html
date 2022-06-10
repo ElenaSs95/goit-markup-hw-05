@@ -67,7 +67,9 @@
               Эффективные решения <br />
               для вашего бизнеса
             </h1>
-            <button type="button" class="hero-button">Заказать услугу</button>
+            <button type="button" class="hero-button" data-modal-open>
+              Заказать услугу
+            </button>
           </div>
         </section>
       </div>
@@ -138,6 +140,9 @@
                 alt="Человек, который печатает на компьютере"
                 width="370"
               />
+              <div class="progects-thumb">
+                <h3 class="progects-item">Десктопные приложения</h3>
+              </div>
             </li>
             <li class="progects-list">
               <img
@@ -145,6 +150,9 @@
                 alt="Человек с телефоном в руке за компьютером"
                 width="370"
               />
+              <div class="progects-thumb">
+                <h3 class="progects-item">Мобильные приложения</h3>
+              </div>
             </li>
             <li class="progects-list">
               <img
@@ -152,6 +160,9 @@
                 alt="Человек работающий на планшете за столом"
                 width="370"
               />
+              <div class="progects-thumb">
+                <h3 class="progects-item">Дизайнерские решения</h3>
+              </div>
             </li>
           </ul>
         </div>
@@ -437,5 +448,15 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="button-close-icon" data-modal-close>
+          <svg class="close-icon" width="30" height="30">
+            <use href="./images/icons.svg#icon-close-black-18dp-2-1-2"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
